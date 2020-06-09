@@ -26,7 +26,7 @@ public class AssetController {
         );
     }
 
-    @PostMapping("/update/{contentId}")
+    @PutMapping("/update/{contentId}")
     @ApiOperation("Zaktualizowanie encji asset")
     public AssetView updateAsset(@PathVariable String contentId, @RequestBody UpdateAssetRequest request){
         return assetService.updateAsset(
@@ -36,7 +36,7 @@ public class AssetController {
         );
     }
 
-    @PostMapping("/delete/{contentId}")
+    @DeleteMapping("/delete/{contentId}")
     @ApiOperation("Usunięcie encji asset")
     public void deleteAsset(@PathVariable String contentId){
         assetService.deleteAsset(ContentId.of(contentId));
