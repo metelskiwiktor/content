@@ -18,6 +18,8 @@ import java.time.format.DateTimeFormatter;
 
 @ControllerAdvice
 public class ExceptionHandlerController {
+    private static final String ERR0R = "error";
+
     private final Clock clock;
     private final DateTimeFormatter formatter;
     private final Logger logger = LoggerFactory.getLogger(ExceptionHandlerController.class);
@@ -32,7 +34,7 @@ public class ExceptionHandlerController {
             HttpMessageNotReadableException.class
     })
     public ResponseEntity<ErrorResponse> handleParsingExceptions(HttpServletRequest request, Exception exception) {
-        logger.error("error", exception);
+        logger.error(ERR0R, exception);
 
         return response(
                 request.getRequestURI(),
@@ -45,7 +47,7 @@ public class ExceptionHandlerController {
             DomainException.class
     })
     public ResponseEntity<ErrorResponse> handleDomainExceptions(HttpServletRequest request, DomainException domainException) {
-        logger.error("error", domainException);
+        logger.error(ERR0R, domainException);
 
         HttpStatus statusCode = HttpStatus.valueOf(domainException.getExceptionCode().getHttpStatus());
         return response(
@@ -59,7 +61,7 @@ public class ExceptionHandlerController {
             Exception.class
     })
     public ResponseEntity<ErrorResponse> handleExceptions(HttpServletRequest request, Exception exception) {
-        logger.error("error", exception);
+        logger.error(ERR0R, exception);
 
         return response(
                 request.getRequestURI(),

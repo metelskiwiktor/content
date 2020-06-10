@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import pl.wiktor.demo.api.page.PageResponse;
 import pl.wiktor.demo.domain.ContentId;
-import pl.wiktor.demo.domain.asset.Asset;
 import pl.wiktor.demo.domain.asset.AssetService;
 
 @RestController

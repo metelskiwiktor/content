@@ -1,6 +1,5 @@
 package pl.wiktor.demo.infrastructure.database.mock;
 
-import org.springframework.stereotype.Component;
 import pl.wiktor.demo.domain.ContentId;
 import pl.wiktor.demo.domain.asset.Asset;
 import pl.wiktor.demo.domain.asset.AssetRepository;
