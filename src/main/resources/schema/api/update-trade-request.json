@@ -8,7 +8,8 @@
       "type": "number"
     },
     "state": {
-      "type": "string"
+      "type": "object",
+      "existingJavaType": "pl.wiktor.demo.domain.trade.State"
     }
   }
 }

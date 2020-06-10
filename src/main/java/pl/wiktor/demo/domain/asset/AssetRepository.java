@@ -2,6 +2,7 @@ package pl.wiktor.demo.domain.asset;
 
 import pl.wiktor.demo.domain.ContentId;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface AssetRepository {
@@ -9,4 +10,5 @@ public interface AssetRepository {
     void delete(Asset asset);
     void save(Asset asset);
     void update(Asset asset);
+    List<Asset> getAll();
 }

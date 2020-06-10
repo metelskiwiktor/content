@@ -7,9 +7,8 @@ import pl.wiktor.demo.domain.asset.AssetRepository;
 
 import java.util.*;
 
-@Component
-public class MockAssetRepository implements AssetRepository {
-    private final Map<ContentId, Asset> assets;
+public abstract class MockAssetRepository implements AssetRepository {
+    protected final Map<ContentId, Asset> assets;
 
     public MockAssetRepository() {
         assets = new HashMap<>();
@@ -17,7 +16,7 @@ public class MockAssetRepository implements AssetRepository {
 
     @Override
     public Optional<Asset> findById(ContentId contentId) {
-        return Optional.of(assets.get(contentId));
+        return Optional.ofNullable(assets.get(contentId));
     }
 
     @Override

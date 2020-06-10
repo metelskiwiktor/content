@@ -19,7 +19,7 @@ public class AssetToAssetViewConverter implements Converter<Asset, AssetView> {
     public AssetView convert(Asset asset) {
         AssetView assetView = new AssetView();
         assetView.setName(asset.getName());
-        assetView.setCategory(asset.getCategory().toString());
+        assetView.setCategory(asset.getCategory());
         assetView.setCreatedTime(formatter.format(asset.getCreatedTime()));
         assetView.setLastUpdateTime(formatter.format(asset.getLastUpdateTime()));
         assetView.setId(asset.getId().getValue());

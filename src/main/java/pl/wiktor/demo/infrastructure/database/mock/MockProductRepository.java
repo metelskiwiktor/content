@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-@Component
-public class MockProductRepository implements ProductRepository {
-    private final Map<ContentId, Product> products;
+public abstract class MockProductRepository implements ProductRepository {
+    protected final Map<ContentId, Product> products;
 
     public MockProductRepository() {
         this.products = new HashMap<>();
@@ -19,7 +18,7 @@ public class MockProductRepository implements ProductRepository {
 
     @Override
     public Optional<Product> findById(ContentId contentId) {
-        return Optional.of(products.get(contentId));
+        return Optional.ofNullable(products.get(contentId));
     }
 
     @Override

@@ -5,7 +5,8 @@
       "type": "string"
     },
     "category": {
-      "type": "string"
+      "type": "object",
+      "existingJavaType": "pl.wiktor.demo.domain.asset.Category"
     },
     "id": {
       "type": "string"

@@ -25,7 +25,7 @@ public abstract class AbstractContent {
         return lastUpdateTime;
     }
 
-    public void updateTime(Instant instant){
-
+    protected void updateTime(Instant updateTime){
+        this.lastUpdateTime = updateTime;
     }
 }

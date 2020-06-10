@@ -23,8 +23,9 @@ public class Asset extends AbstractContent {
         return category;
     }
 
-    public void update(String name, Category category){
+    public void update(String name, Category category, Instant updateTime){
         this.name = name;
         this.category = category;
+        updateTime(updateTime);
     }
 }

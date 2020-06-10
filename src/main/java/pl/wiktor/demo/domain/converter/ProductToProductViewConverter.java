@@ -22,7 +22,7 @@ public class ProductToProductViewConverter implements Converter<Product, Product
         productView.setCreatedTime(formatter.format(product.getCreatedTime()));
         productView.setLastUpdateTime(formatter.format(product.getLastUpdateTime()));
         productView.setIsin(product.getIsin().getValue());
-        productView.setType(product.getType().getValue());
+        productView.setType(product.getType());
         productView.setPrice(product.getPrice());
 
         return productView;

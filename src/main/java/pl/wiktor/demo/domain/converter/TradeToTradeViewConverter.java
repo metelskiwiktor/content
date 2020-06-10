@@ -22,7 +22,7 @@ public class TradeToTradeViewConverter implements Converter<Trade, TradeView> {
         tradeView.setCreatedTime(formatter.format(trade.getCreatedTime()));
         tradeView.setLastUpdateTime(formatter.format(trade.getLastUpdateTime()));
         tradeView.setNotional(trade.getNotional());
-        tradeView.setState(trade.getState().getValue());
+        tradeView.setState(trade.getState());
 
         return tradeView;
     }

@@ -5,7 +5,9 @@ import com.example.types.api.CreateAssetRequest;
 import com.example.types.api.UpdateAssetRequest;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
+import pl.wiktor.demo.api.page.PageResponse;
 import pl.wiktor.demo.domain.ContentId;
+import pl.wiktor.demo.domain.asset.Asset;
 import pl.wiktor.demo.domain.asset.AssetService;
 
 @RestController
@@ -18,7 +20,7 @@ public class AssetController {
     }
 
     @PostMapping("/create")
-    @ApiOperation("Utworzenie nowej encji asset")
+    @ApiOperation("Utworzenie nowego nabytku")
     public AssetView createAsset(@RequestBody CreateAssetRequest request){
         return assetService.createAsset(
                 request.getName(),
@@ -27,7 +29,7 @@ public class AssetController {
     }
 
     @PutMapping("/update/{contentId}")
-    @ApiOperation("Zaktualizowanie encji asset")
+    @ApiOperation("Zaktualizowanie nabytku")
     public AssetView updateAsset(@PathVariable String contentId, @RequestBody UpdateAssetRequest request){
         return assetService.updateAsset(
                 request.getName(),
@@ -37,14 +39,20 @@ public class AssetController {
     }
 
     @DeleteMapping("/delete/{contentId}")
-    @ApiOperation("Usunięcie encji asset")
+    @ApiOperation("Usunięcie nabytku")
     public void deleteAsset(@PathVariable String contentId){
         assetService.deleteAsset(ContentId.of(contentId));
     }
 
     @GetMapping("/get/{contentId}")
-    @ApiOperation("Zwrócenie encji asset")
+    @ApiOperation("Zwrócenie nabytku")
     public AssetView getAsset(@PathVariable String contentId){
         return assetService.getAsset(ContentId.of(contentId));
+    }
+
+    @GetMapping("/get-all")
+    @ApiOperation("Zwrócenie wszystkich assetów w paginacji")
+    public PageResponse<AssetView> getAllAssets(@RequestParam("elements") int elementsPerPage, @RequestParam("page") int page){
+        return assetService.getAllAssets(elementsPerPage, page);
     }
 }

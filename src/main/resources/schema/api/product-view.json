@@ -8,7 +8,8 @@
       "type": "string"
     },
     "type": {
-      "type": "string"
+      "type": "object",
+      "existingJavaType": "pl.wiktor.demo.domain.product.Type"
     },
     "createdTime": {
       "type": "string"
